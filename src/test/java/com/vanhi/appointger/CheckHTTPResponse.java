@@ -18,7 +18,7 @@ public class CheckHTTPResponse {
 
     @Test
     public void shouldPassIfStringMatches(){
-        assertEquals("Hello World from Spring boot",
+        assertEquals("Hello to the Appointment Manager from Spring boot",
                 testRestTemplate.getForObject("http://localhost:"+ port + "/", String.class));
     }
 
