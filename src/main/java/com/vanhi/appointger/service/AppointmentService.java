@@ -8,4 +8,6 @@ public interface AppointmentService {
     Appointment create (Appointment appointment);
     Collection<Appointment> list (int limit);
     Appointment get(Long id);
+    Appointment update (Appointment appointment);
+    Boolean delete (Long id);
 }

@@ -16,4 +16,8 @@ public class Appointment {
     private Long id;
     private Date date;
     private String type;
+
+    public String getName() {
+        return "";
+    }
 }

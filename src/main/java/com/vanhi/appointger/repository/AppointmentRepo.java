@@ -1,5 +1,11 @@
 package com.vanhi.appointger.repository;
 
-public class AppointmentRepo {
+import com.vanhi.appointger.model.Appointment;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.Date;
+
+public interface AppointmentRepo extends JpaRepository<Appointment, Long> {
+    Appointment findByDate(Date date);
 
 }
