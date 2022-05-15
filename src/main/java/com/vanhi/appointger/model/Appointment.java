@@ -1,5 +1,6 @@
 package com.vanhi.appointger.model;
 
+import com.vanhi.appointger.enumeration.Specialty;
 import jdk.jfr.DataAmount;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
@@ -15,9 +16,8 @@ public class Appointment {
     @GeneratedValue (strategy = GenerationType.AUTO)
     private Long id;
     private Date date;
-    private String type;
-
-    public String getName() {
-        return "";
+    private Specialty specialty;
+    public Specialty getSpecialty() {
+        return this.specialty;
     }
 }

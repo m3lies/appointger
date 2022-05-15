@@ -20,8 +20,8 @@ public class AppointServiceImplementation implements AppointmentService {
 
     @Override
     public Appointment create(Appointment appointment) {
-        log.info("Saving new appointment", appointment.getName());
-        return null;
+        log.info("Saving new appointment {}", appointment.getSpecialty());
+        return appointmentRepo.save(appointment);
     }
 
     @Override
