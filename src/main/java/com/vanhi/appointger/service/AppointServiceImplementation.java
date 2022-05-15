@@ -48,6 +48,5 @@ public class AppointServiceImplementation implements AppointmentService {
         log.info("Delete appointment {}", id);
         appointmentRepo.deleteById(id);
         return Boolean.TRUE;
-
     }
 }
