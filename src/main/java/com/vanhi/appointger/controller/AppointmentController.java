@@ -13,12 +13,12 @@ import java.time.LocalDateTime;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/appointment")
+@RequestMapping("/appointments")
 @RequiredArgsConstructor
 public class AppointmentController {
     private final AppointServiceImplementation appointmentServiceImpl;
 
-    @GetMapping("/list")
+    @GetMapping("/")
     public ResponseEntity<Response> getAppointments(){
         return ResponseEntity.ok(
                 Response.builder()
@@ -30,8 +30,8 @@ public class AppointmentController {
                         .build()
         );
     }
-    @PostMapping ("/save")
-    public ResponseEntity<Response> saveAppointment(@RequestBody @Valid Appointment appointment){
+    @PostMapping ("/")
+    public ResponseEntity<Response> saveAppointment(@RequestBody Appointment appointment){
         return ResponseEntity.ok(
                 Response.builder()
                         .timeStamp(LocalDateTime.now())
@@ -43,7 +43,7 @@ public class AppointmentController {
         );
     }
 
-    @GetMapping ("/get/{id}")
+    @GetMapping ("/{id}")
     public ResponseEntity<Response> getAppointment(@PathVariable Long id){
         return ResponseEntity.ok(
                 Response.builder()
@@ -56,7 +56,7 @@ public class AppointmentController {
         );
     }
 
-    @DeleteMapping ("/delete/{id}")
+    @DeleteMapping ("/{id}")
     public ResponseEntity<Response> deleteAppointment(@PathVariable("id") Long id){
         return ResponseEntity.ok(
                 Response.builder()
@@ -64,7 +64,7 @@ public class AppointmentController {
                         .data(Map.of("appointments", appointmentServiceImpl.delete(id)))
                         .status(HttpStatus.OK)
                         .statusCode(HttpStatus.OK.value())
-                        .message("Appointment retrieved")
+                        .message("appointment deleted")
                         .build()
         );
     }
