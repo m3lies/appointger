@@ -4,6 +4,7 @@ import com.vanhi.appointger.model.Appointment;
 import com.vanhi.appointger.repository.AppointmentRepo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -26,21 +27,27 @@ public class AppointServiceImplementation implements AppointmentService {
 
     @Override
     public Collection<Appointment> list(int limit) {
-        return null;
+        log.info("Fetching all the existing appointments");
+        return appointmentRepo.findAll(PageRequest.of(0,limit)).toList();
     }
 
     @Override
     public Appointment get(Long id) {
-        return null;
+
+        log.info("Fetching appointment by id");
+        return appointmentRepo.findById(id).get();
     }
 
     @Override
     public Appointment update(Appointment appointment) {
-        return null;
+        log.info("Update appointment {}", appointment.getSpecialty());
+        return appointmentRepo.save(appointment);
     }
-
     @Override
     public Boolean delete(Long id) {
-        return null;
+        log.info("Delete appointment {}", id);
+        appointmentRepo.deleteById(id);
+        return Boolean.TRUE;
+
     }
 }
