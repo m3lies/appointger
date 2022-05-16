@@ -35,8 +35,8 @@ public class AppointgerApplication {
 
         return args -> {
 
-            Person person1=new Person(null, "julia", "julia@gmail.com");
-            Person person2=new Person(null, "jules", "jules@gmail.com");
+            Person person1=new Person(null, "marie", "marie@gmail.com");
+            Person person2=new Person(null, "mario", "mario@gmail.com");
             personRepo.save(person1);
             personRepo.save(person2);
 

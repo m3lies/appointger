@@ -13,12 +13,12 @@ import java.time.LocalDateTime;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/appointments")
+@RequestMapping("/api")
 @RequiredArgsConstructor
 public class AppointmentController {
     private final AppointServiceImplementation appointmentServiceImpl;
 
-    @GetMapping("/")
+    @GetMapping("/appointments")
     public ResponseEntity<Response> getAppointments(){
         return ResponseEntity.ok(
                 Response.builder()
@@ -30,7 +30,7 @@ public class AppointmentController {
                         .build()
         );
     }
-    @PostMapping ("/")
+    @PostMapping ("/appointments")
     public ResponseEntity<Response> saveAppointment(@RequestBody Appointment appointment){
         return ResponseEntity.ok(
                 Response.builder()
@@ -43,7 +43,7 @@ public class AppointmentController {
         );
     }
 
-    @GetMapping ("/{id}")
+    @GetMapping ("/appointments/{id}")
     public ResponseEntity<Response> getAppointment(@PathVariable Long id){
         return ResponseEntity.ok(
                 Response.builder()
@@ -56,7 +56,7 @@ public class AppointmentController {
         );
     }
 
-    @DeleteMapping ("/{id}")
+    @DeleteMapping ("/appointments/{id}")
     public ResponseEntity<Response> deleteAppointment(@PathVariable("id") Long id){
         return ResponseEntity.ok(
                 Response.builder()
