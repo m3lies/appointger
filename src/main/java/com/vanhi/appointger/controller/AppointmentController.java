@@ -1,5 +1,6 @@
 package com.vanhi.appointger.controller;
 
+import com.vanhi.appointger.exception.ResourceNotFoundExcetion;
 import com.vanhi.appointger.model.Appointment;
 import com.vanhi.appointger.model.Response;
 import com.vanhi.appointger.service.AppointServiceImplementation;
@@ -8,7 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.time.LocalDateTime;
 import java.util.Map;
 
@@ -68,4 +68,18 @@ public class AppointmentController {
                         .build()
         );
     }
+
+    @GetMapping("/persons/{personId/appointments}")
+    public ResponseEntity<Response> getAppointmentsList(@PathVariable("personId") Long personId) throws ResourceNotFoundExcetion {
+        return ResponseEntity.ok(
+                Response.builder()
+                        .timeStamp(LocalDateTime.now())
+                        .data(Map.of("appointments", appointmentServiceImpl.listByPersonId(personId)))
+                        .status(HttpStatus.OK)
+                        .statusCode(HttpStatus.OK.value())
+                        .message("Appointments retrieved")
+                        .build()
+        );
+    }
+
 }
