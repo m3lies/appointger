@@ -56,7 +56,7 @@ public class PersonController {
     }
 
     @DeleteMapping ("/persons/{id}")
-    public ResponseEntity<Response> deleteAppointment(@PathVariable("id") Long id){
+    public ResponseEntity<Response> deletePerson(@PathVariable("id") Long id){
         return ResponseEntity.ok(
                 Response.builder()
                         .timeStamp(LocalDateTime.now())
