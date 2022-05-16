@@ -30,11 +30,6 @@ public class PersonServiceImplementation implements PersonService {
     }
 
     @Override
-    public Collection<Appointment> appointmentList(int limit) {
-        return null;
-    }
-
-    @Override
     public Person get(Long id) {
 
         log.info("Fetching person by id");

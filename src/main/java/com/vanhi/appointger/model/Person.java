@@ -21,6 +21,5 @@ public class Person {
     private Long id;
     private String name;
     private String email;
-    @OneToMany (mappedBy = "person")
-    private Set<Appointment> appointments;
+
 }
