@@ -1,6 +1,5 @@
 package com.vanhi.appointger.controller;
 
-import com.vanhi.appointger.model.Appointment;
 import com.vanhi.appointger.model.Person;
 import com.vanhi.appointger.model.Response;
 import com.vanhi.appointger.service.PersonServiceImplementation;

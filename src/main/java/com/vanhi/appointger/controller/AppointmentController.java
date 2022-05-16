@@ -69,7 +69,7 @@ public class AppointmentController {
         );
     }
 
-    @GetMapping("/persons/{personId/appointments}")
+    @GetMapping("/persons/{personId}/appointments")
     public ResponseEntity<Response> getAppointmentsList(@PathVariable("personId") Long personId) throws ResourceNotFoundExcetion {
         return ResponseEntity.ok(
                 Response.builder()

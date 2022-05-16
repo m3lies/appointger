@@ -1,5 +1,6 @@
 package com.vanhi.appointger.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.vanhi.appointger.enumeration.Specialty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,7 +22,7 @@ public class Appointment {
     private Long id;
     private Date date;
     private Specialty specialty;
-    @ManyToOne (fetch = FetchType.LAZY, optional = false)
+    @ManyToOne (fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name="person_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Person person;
