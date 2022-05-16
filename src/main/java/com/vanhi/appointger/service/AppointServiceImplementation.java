@@ -1,7 +1,9 @@
 package com.vanhi.appointger.service;
 
+import com.vanhi.appointger.exception.ResourceNotFoundExcetion;
 import com.vanhi.appointger.model.Appointment;
 import com.vanhi.appointger.repository.AppointmentRepo;
+import com.vanhi.appointger.repository.PersonRepo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageRequest;
@@ -9,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.Collection;
+import java.util.List;
 
 
 @RequiredArgsConstructor
@@ -18,6 +21,7 @@ import java.util.Collection;
 public class AppointServiceImplementation implements AppointmentService {
 
     private final AppointmentRepo appointmentRepo;
+    private final PersonRepo personRepo;
 
     @Override
     public Appointment create(Appointment appointment) {
@@ -48,5 +52,13 @@ public class AppointServiceImplementation implements AppointmentService {
         log.info("Delete appointment {}", id);
         appointmentRepo.deleteById(id);
         return Boolean.TRUE;
+    }
+
+    @Override
+    public Collection<Appointment> listByPersonId(Long personId) throws ResourceNotFoundExcetion {
+        if (!personRepo.existsById(personId)){
+            throw new ResourceNotFoundExcetion("Not found Person with id"+ personId);
+        }
+        return appointmentRepo.findByPersonId(personId);
     }
 }
