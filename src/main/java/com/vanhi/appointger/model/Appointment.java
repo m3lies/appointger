@@ -1,11 +1,9 @@
 package com.vanhi.appointger.model;
 
 import com.vanhi.appointger.enumeration.Specialty;
-import jdk.jfr.DataAmount;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -21,6 +19,9 @@ public class Appointment {
     private Long id;
     private Date date;
     private Specialty specialty;
+    @ManyToOne
+    @JoinColumn(name="person_id", nullable = false)
+    private Person person;
     public Specialty getSpecialty() {
         return this.specialty;
     }
