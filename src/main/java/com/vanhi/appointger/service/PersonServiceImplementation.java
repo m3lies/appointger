@@ -16,35 +16,29 @@ import java.util.Collection;
 @Transactional
 @Slf4j
 public class PersonServiceImplementation implements PersonService {
-    private final PersonRepo personRepo;
+
     @Override
     public Person create(Person person) {
-        log.info("Saving new person {}", person.getName());
-        return personRepo.save(person);
+        return null;
     }
 
     @Override
     public Collection<Person> list(int limit) {
-        log.info("Fetching all the existing persons");
-        return personRepo.findAll(PageRequest.of(0,limit)).toList();
+        return null;
     }
 
     @Override
     public Person get(Long id) {
-
-        log.info("Fetching person by id");
-        return personRepo.findById(id).get();
+        return null;
     }
 
     @Override
     public Person update(Person person) {
-        log.info("Update person {}", person.getName());
-        return personRepo.save(person);
+        return null;
     }
+
     @Override
     public Boolean delete(Long id) {
-        log.info("Delete person {}", id);
-        personRepo.deleteById(id);
-        return Boolean.TRUE;
+        return null;
     }
 }
