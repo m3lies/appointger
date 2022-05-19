@@ -1,6 +1,5 @@
 package com.vanhi.appointger.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.vanhi.appointger.enumeration.Specialty;
 import lombok.AllArgsConstructor;
 import lombok.Data;

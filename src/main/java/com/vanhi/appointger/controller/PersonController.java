@@ -1,17 +1,11 @@
 package com.vanhi.appointger.controller;
 
 import com.vanhi.appointger.model.Person;
-import com.vanhi.appointger.model.Response;
 import com.vanhi.appointger.repository.PersonRepo;
-import com.vanhi.appointger.service.PersonServiceImplementation;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 @CrossOrigin
