@@ -16,23 +16,23 @@ public class PersonController {
     private final PersonRepo personRepo;
 
     @GetMapping("/persons")
-    public List<Person> getPersons(){
+    public List<Person> getPersons() {
         return (List<Person>) personRepo.findAll();
     }
 
     @PostMapping("/persons")
-    public void savePerson(@RequestBody Person person){
+    public void savePerson(@RequestBody Person person) {
         personRepo.save(person);
     }
 
-    @GetMapping ("/persons/{id}")
-    public Optional<Person> getPerson(@PathVariable("id") Long id){
+    @GetMapping("/persons/{id}")
+    public Optional<Person> getPerson(@PathVariable("id") Long id) {
         return personRepo.findById(id);
 
     }
 
-    @DeleteMapping ("/persons/{id}")
-    public void deletePerson (@PathVariable("id") Long id){
+    @DeleteMapping("/persons/{id}")
+    public void deletePerson(@PathVariable("id") Long id) {
         personRepo.deleteById(id);
-        }
+    }
 }
