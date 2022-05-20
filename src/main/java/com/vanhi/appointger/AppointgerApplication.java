@@ -25,7 +25,7 @@ public class AppointgerApplication {
     }
 
     @Bean
-    CommandLineRunner run(AppointmentRepo appointmentRepo, PersonRepo personRepo) throws ParseException {
+    CommandLineRunner init(AppointmentRepo appointmentRepo, PersonRepo personRepo) throws ParseException {
         SimpleDateFormat simpleDateFormat1 = new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.FRANCE);
         Date date1 = simpleDateFormat1.parse("3/04/2022 14:00");
         SimpleDateFormat simpleDateFormat2 = new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.FRANCE);
@@ -35,8 +35,8 @@ public class AppointgerApplication {
 
         return args -> {
 
-            Person person1=new Person(null, "marie", "marie@gmail.com");
-            Person person2=new Person(null, "mario", "mario@gmail.com");
+            Person person1= new Person(null, "marie", "marie@gmail.com");
+            Person person2= new Person(null, "mario", "mario@gmail.com");
             personRepo.save(person1);
             personRepo.save(person2);
 

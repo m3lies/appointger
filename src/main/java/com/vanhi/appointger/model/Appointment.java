@@ -14,7 +14,6 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="appointments")
 public class Appointment {
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
